@@ -86,24 +86,6 @@ function ENT:OpenLaptop()
 			:Outline(Color(255, 255, 255, 255), 3)
 
 		local drive = {}
-		drive.f = vgui.Create("DPanel", top)
-		drive.f:SetPos(15,15)
-		drive.f:DivWide(4)
-		drive.f:DivTall(1)
-		drive.f:SetTall(drive.f:GetTall() - 30)
-		drive.f:TDLib()
-			:Background(Color(20,20,20,255))
-			:Outline(Color(255, 255, 255, 255), 1)
-
-		local drive = {}
-		drive.f = vgui.Create("DPanel", top)
-		drive.f:SetPos(15,15)
-		drive.f:DivWide(4)
-		drive.f:DivTall(1)
-		drive.f:SetTall(drive.f:GetTall() - 30)
-		drive.f:TDLib()
-			:Background(Color(20,20,20,255))
-			:Outline(Color(255, 255, 255, 255), 1)
 
 		drive.c = vgui.Create("DPanel", top)
 		drive.c:Dock(FILL)
@@ -113,69 +95,5 @@ function ENT:OpenLaptop()
 
 		entity.console = drive.c:CreateConsole(entity.panels.frame, entity, "external") -- create console area
 
-		local name_slot = vgui.Create("DPanel", drive.f )
-		name_slot:SetPos(0,0)
-		name_slot:DivWide(1)
-		name_slot:SetTall(25)
-		name_slot:TDLib()
-			:Background(Color(20,20,20,255))
-			:Outline(Color(255, 255, 255, 255), 1)
-			:Text("EXTERNAL DRIVES", "DebugFixed", Color(255, 255, 255), TEXT_ALIGN_CENTER)
-			
-		-- if entity:GetExtDrive() then
-			
-		-- 	drive.unamed = vgui.Create("DButton", drive.f )
-		-- 	drive.unamed:SetWide(drive.f:GetWide() - 12)
-		-- 	drive.unamed:SetPos(6, name_slot:GetTall() + 6)
-		-- 	drive.unamed:SetContentAlignment(4)
-		-- 	drive.unamed:SetTall(25)
-
-		-- 	function drive.unamed:DoClick()
-		-- 		for k, v in pairs(drive) do
-		-- 			v.selected = false
-		-- 		end
-		-- 		entity.selected = true
-		-- 		console:InsertColorChange( 255, 155, 155, 255)
-		-- 		--print(ITEMS[entity:GetExternal()])
-		-- 		if ITEMS[entity:GetExternal()].Drive == "0:" then
-		-- 			console:AppendText( ITEMS[entity:GetExternal()].Drive ..  " Unassigned External Drive; Set a name with 'ext_set'.\n" )
-		-- 		else
-		-- 			console:AppendText( ITEMS[entity:GetExternal()].Drive ..  " Assigned External Drive; Use 'ext_help' for help.\n" )
-		-- 		end
-		-- 	end
-		-- 	drive.unamed.Paint = function(s,w,h)
-		-- 		if s.selected then
-		-- 			surface.SetDrawColor(Color(255,255,255, 10))
-		-- 			surface.DrawRect(0, 0, w, h)
-		-- 		end
-		-- 	end
-		-- 	drive.unamed:TDLib()
-		-- 		:Outline(Color(255,255,255), 1)
-		-- 		:FadeHover(Color(255,255,255,10))
-		-- 		:Text(spacer .. ITEMS[entity:GetExternal()].Drive .. " EXTERNAL-DRIVE", "DebugFixed", Color(255, 255, 255), TEXT_ALIGN_LEFT, 10)
-		-- end
 	end
 end
-
-
-
---[[-------------------------------------------------------------------------
-drive.unamed.Paint = function(s,w,h)
-			s.len = 0
-			surface.SetDrawColor(Color(255,255,255))
-			for i = 0, s:GetWide(), s:GetWide()/16 do
-				surface.DrawRect(s.len + i, 0 , s:GetWide()/(16*4), 1)
-				surface.DrawRect( s:GetWide() - i - s:GetWide()/(16*4), 0, s:GetWide()/(16*4) + 1, 1)
-			end
-			for i = 0, s:GetWide(), s:GetWide()/16 do
-				surface.DrawRect(s.len + i, s:GetTall() - 1, s:GetWide()/(16*4), 1)
-				surface.DrawRect( s:GetWide() - i - s:GetWide()/(16*4), s:GetTall() - 1, s:GetWide()/(16*4) + 1, 1)
-			end
-			surface.DrawRect(s:GetWide() - 1, 0, 1, s:GetTall())
-			surface.DrawRect(0, 0, 1, s:GetTall())
-			if s.selected then
-				surface.SetDrawColor(Color(255,255,255, 10))
-				surface.DrawRect(0, 0, w, h)
-			end
-		end
----------------------------------------------------------------------------]]
